@@ -23,8 +23,8 @@ kind: Service
 metadata:
   name: driver-service
 spec:
+  selector:
+    app: driver
   ports:
     - port: 8081
       targetPort: 8081
-  selector:
-    app: driver
