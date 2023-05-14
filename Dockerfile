@@ -1,5 +1,9 @@
-FROM golang:latest
+FROM golang:1.19
 
 WORKDIR /app
 
-CMD [ "tail", "-f", "/dev/null" ]
+COPY . .
+
+RUN GOOS=linux go build driver.go
+
+CMD ["./driver"]
