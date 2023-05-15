@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: driver
-          image: sidartasilva/maratona-fc-1-part-5-driver
+          image: img-deployment
           ports:
             - containerPort: 8081
 
