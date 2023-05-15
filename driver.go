@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 
@@ -59,6 +60,7 @@ func GetDriverById(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	log.Println("alive")
 	r := mux.NewRouter()
 	r.HandleFunc("/drivers", ListDrivers)
 	r.HandleFunc("/drivers/{id}", GetDriverById)
