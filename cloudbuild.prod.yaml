@@ -1,0 +1,43 @@
+steps:
+  - name: mirror.gcr.io/library/golang
+    env: ["GO111MODULE=on"]
+    args: ["go", "build", "./..."]
+
+  - id: "Running Tests"
+    name: mirror.gcr.io/library/golang
+    env: ["GO111MODULE=on"]
+    args: ["go", "test"]
+
+  - id: "Building Application"
+    name: mirror.gcr.io/library/golang
+    env: ["GO111MODULE=on"]
+    args: ["go", "build", "driver.go"]
+
+  - id: "Building Image"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["build", "--tag=gcr.io/$PROJECT_ID/maratona-driver:$SHORT_SHA", "."]
+
+  - id: "Pushing Image"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/maratona-driver:$SHORT_SHA"]
+
+  - id: "Adjust deployment for kubectl"
+    name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "/bin/sh"
+    args:
+      - "-c"
+      - |
+        sed 's#img-deployment#gcr.io/$PROJECT_ID/maratona-driver:$SHORT_SHA#g' ./k8s/driver.yaml > k8s/driver-new.yaml;
+        cat k8s/driver-new.yaml;
+
+  - id: "Deploying to Kubernetes"
+    name: "gcr.io/cloud-builders/kubectl"
+    args:
+      - "apply"
+      - "-f"
+      - "k8s/driver-new.yaml"
+    env:
+      - "CLOUDSDK_COMPUTE_ZONE=us-central1-c"
+      - "CLOUDSDK_CONTAINER_CLUSTER=maratona-istio"
+
+images: ["gcr.io/$PROJECT_ID/maratona-driver"]
