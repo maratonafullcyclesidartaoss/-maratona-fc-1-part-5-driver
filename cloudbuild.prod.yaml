@@ -14,16 +14,16 @@ steps:
     args: ["go", "build", "driver.go"]
 
   - id: "Building Image"
-    name: "gcr.io/cloud-builders/docker"
+    name: "docker"
     args: ["build", "--tag=gcr.io/$PROJECT_ID/maratona-driver:$SHORT_SHA", "."]
 
   - id: "Pushing Image"
-    name: "gcr.io/cloud-builders/docker"
+    name: "docker"
     args: ["push", "gcr.io/$PROJECT_ID/maratona-driver:$SHORT_SHA"]
 
   - id: "Adjust deployment for kubectl"
-    name: "gcr.io/cloud-builders/gcloud"
-    entrypoint: "/bin/sh"
+    name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
     args:
       - "-c"
       - |
