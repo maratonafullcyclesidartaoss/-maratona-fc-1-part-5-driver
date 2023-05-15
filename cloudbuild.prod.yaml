@@ -1,15 +1,15 @@
 steps:
-  - name: mirror.gcr.io/library/golang
+  - name: registry.hub.docker.com/library/golang
     env: ["GO111MODULE=on"]
     args: ["go", "build", "./..."]
 
   - id: "Running Tests"
-    name: mirror.gcr.io/library/golang
+    name: registry.hub.docker.com/library/golang
     env: ["GO111MODULE=on"]
     args: ["go", "test"]
 
   - id: "Building Application"
-    name: mirror.gcr.io/library/golang
+    name: registry.hub.docker.com/library/golang
     env: ["GO111MODULE=on"]
     args: ["go", "build", "driver.go"]
 
