@@ -13,4 +13,3 @@ jobs:
           go-version: 1.18
       - run: go test ./...
       - run: go build driver.go
-
