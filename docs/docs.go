@@ -11,11 +11,7 @@ const docTemplate = `{
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
         "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "Sidarta Silva",
-            "url": "http://www.fullcycle.com.br",
-            "email": "atendimento@fullcycle.com.br"
-        },
+        "contact": {},
         "license": {
             "name": "Full Cycle License",
             "url": "http://www.fullcycle.com.br"
@@ -59,7 +55,6 @@ const docTemplate = `{
         },
         "/drivers/{id}": {
             "get": {
-                "description": "Get a driver",
                 "consumes": [
                     "application/json"
                 ],

@@ -11,10 +11,7 @@ definitions:
     type: object
 host: localhost:8081
 info:
-  contact:
-    email: atendimento@fullcycle.com.br
-    name: Sidarta Silva
-    url: http://www.fullcycle.com.br
+  contact: {}
   description: Driver API
   license:
     name: Full Cycle License
@@ -48,7 +45,6 @@ paths:
     get:
       consumes:
       - application/json
-      description: Get a driver
       parameters:
       - description: driver ID
         format: uuid

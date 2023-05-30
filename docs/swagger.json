@@ -4,11 +4,7 @@
         "description": "Driver API",
         "title": "Maratona Full Cycle Driver API",
         "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "Sidarta Silva",
-            "url": "http://www.fullcycle.com.br",
-            "email": "atendimento@fullcycle.com.br"
-        },
+        "contact": {},
         "license": {
             "name": "Full Cycle License",
             "url": "http://www.fullcycle.com.br"
@@ -52,7 +48,6 @@
         },
         "/drivers/{id}": {
             "get": {
-                "description": "Get a driver",
                 "consumes": [
                     "application/json"
                 ],
