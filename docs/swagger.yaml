@@ -40,7 +40,7 @@ paths:
           description: Internal Server Error
       summary: List drivers
       tags:
-      - drivers
+      - ""
   /drivers/{id}:
     get:
       consumes:
@@ -67,5 +67,5 @@ paths:
           description: Internal Server Error
       summary: Get a driver
       tags:
-      - drivers
+      - ""
 swagger: "2.0"

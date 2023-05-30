@@ -31,7 +31,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "drivers"
+                    ""
                 ],
                 "summary": "List drivers",
                 "responses": {
@@ -62,7 +62,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "drivers"
+                    ""
                 ],
                 "summary": "Get a driver",
                 "parameters": [

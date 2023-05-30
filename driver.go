@@ -42,7 +42,7 @@ func loadDrivers() []byte {
 // ListDrivers godoc
 // @Summary      List drivers
 // @Description  Get all drivers
-// @Tags         drivers
+// @Tags
 // @Accept       json
 // @Produce      json
 // @Success      200       {array}   Driver
@@ -65,7 +65,7 @@ func ListDrivers(w http.ResponseWriter, r *http.Request) {
 // GetDriver godoc
 // @Summary      Get a driver
 // @Description
-// @Tags         drivers
+// @Tags
 // @Accept       json
 // @Produce      json
 // @Param        id   path      string  true  "driver ID" Format(uuid)

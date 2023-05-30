@@ -24,7 +24,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "drivers"
+                    ""
                 ],
                 "summary": "List drivers",
                 "responses": {
@@ -55,7 +55,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "drivers"
+                    ""
                 ],
                 "summary": "Get a driver",
                 "parameters": [

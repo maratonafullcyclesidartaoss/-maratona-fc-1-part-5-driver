@@ -9,3 +9,15 @@ rules:
     then:
       field: description
       function: truthy
+
+  contact-properties:
+    description: Contact object must have "name", "url", and "email".
+    given: $.info.contact
+    severity: error
+    then:
+      - field: name
+        function: truthy
+      - field: url
+        function: truthy
+      - field: email
+        function: truthy
