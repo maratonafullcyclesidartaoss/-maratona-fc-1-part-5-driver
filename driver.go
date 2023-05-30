@@ -99,9 +99,9 @@ func GetDriver(w http.ResponseWriter, r *http.Request) {
 // @description     Driver API
 // @termsOfService  http://swagger.io/terms/
 
-// @contact.name   Sidarta Silva
-// @contact.url    http://www.fullcycle.com.br
-// @contact.email  atendimento@fullcycle.com.br
+// @contact.name
+// @contact.url
+// @contact.email
 
 // @license.name   Full Cycle License
 // @license.url    http://www.fullcycle.com.br
