@@ -64,7 +64,7 @@ func ListDrivers(w http.ResponseWriter, r *http.Request) {
 
 // GetDriver godoc
 // @Summary      Get a driver
-// @Description  Get a driver
+// @Description
 // @Tags         drivers
 // @Accept       json
 // @Produce      json
