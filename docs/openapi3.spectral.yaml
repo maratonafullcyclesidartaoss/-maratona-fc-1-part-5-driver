@@ -1,7 +1,5 @@
 extends: [[spectral:oas, all]]
 rules:
-  info-contact: error
-  operation-tags: error
   tags-should-have-description:
     description: Tags must have a description.
     given: $.tags[*]
@@ -20,4 +18,20 @@ rules:
       - field: url
         function: truthy
       - field: email
+        function: truthy
+
+  operations-description-non-null:
+    description: Operation "description" must be informed.
+    given: $.paths[*][get,post,put,delete,options]
+    severity: error
+    then:
+      - field: description
+        function: truthy
+
+  operations-summary-non-null:
+    description: Operation "summary" must be informed.
+    given: $.paths[*][get,post,put,delete,options]
+    severity: error
+    then:
+      - field: summary
         function: truthy

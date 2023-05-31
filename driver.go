@@ -10,7 +10,7 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/gorilla/mux"
-	_ "github.com/sidartaoss/maratona-fullcycle-1/driver/docs"
+	_ "github.com/sidartaoss/maratona-fullcycle-1/part-5/driver/docs"
 	httpSwagger "github.com/swaggo/http-swagger"
 	_ "github.com/swaggo/swag/example/celler/httputil"
 )
@@ -41,8 +41,8 @@ func loadDrivers() []byte {
 
 // ListDrivers godoc
 // @Summary      List drivers
-// @Description  Get all drivers
-// @Tags
+// @Description  List all drivers
+// @Tags		 drivers
 // @Accept       json
 // @Produce      json
 // @Success      200       {array}   Driver
@@ -64,8 +64,8 @@ func ListDrivers(w http.ResponseWriter, r *http.Request) {
 
 // GetDriver godoc
 // @Summary      Get a driver
-// @Description
-// @Tags
+// @Description	 Get a driver by ID (uuid)
+// @Tags		 drivers
 // @Accept       json
 // @Produce      json
 // @Param        id   path      string  true  "driver ID" Format(uuid)
@@ -99,14 +99,14 @@ func GetDriver(w http.ResponseWriter, r *http.Request) {
 // @description     Driver API
 // @termsOfService  http://swagger.io/terms/
 
-// @contact.name
-// @contact.url
-// @contact.email
+// @contact.name 	Sidarta Silva
+// @contact.url		http://www.sidartaoss.com
+// @contact.email	atendimento@sidartaoss.com
 
 // @license.name   Full Cycle License
 // @license.url    http://www.fullcycle.com.br
 
-// @host      localhost:8081
+// @host      host.docker.internal:8081
 // @BasePath  /
 func main() {
 	log.Println("alive")
@@ -117,7 +117,7 @@ func main() {
 	r.Get("/drivers", ListDrivers)
 	r.Get("/drivers/{id}", GetDriver)
 
-	r.Get("/docs/*", httpSwagger.Handler(httpSwagger.URL("http://localhost:8081/docs/doc.json")))
+	r.Get("/docs/*", httpSwagger.Handler(httpSwagger.URL("http://host.docker.internal:8081/docs/doc.json")))
 
 	http.ListenAndServe(":8081", r)
 }

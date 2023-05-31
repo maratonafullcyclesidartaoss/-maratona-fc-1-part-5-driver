@@ -11,7 +11,11 @@ const docTemplate = `{
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
         "termsOfService": "http://swagger.io/terms/",
-        "contact": {},
+        "contact": {
+            "name": "Sidarta Silva",
+            "url": "http://www.sidartaoss.com",
+            "email": "atendimento@sidartaoss.com"
+        },
         "license": {
             "name": "Full Cycle License",
             "url": "http://www.fullcycle.com.br"
@@ -23,7 +27,7 @@ const docTemplate = `{
     "paths": {
         "/drivers": {
             "get": {
-                "description": "Get all drivers",
+                "description": "List all drivers",
                 "consumes": [
                     "application/json"
                 ],
@@ -31,7 +35,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    ""
+                    "drivers"
                 ],
                 "summary": "List drivers",
                 "responses": {
@@ -55,6 +59,7 @@ const docTemplate = `{
         },
         "/drivers/{id}": {
             "get": {
+                "description": "Get a driver by ID (uuid)",
                 "consumes": [
                     "application/json"
                 ],
@@ -62,7 +67,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    ""
+                    "drivers"
                 ],
                 "summary": "Get a driver",
                 "parameters": [
@@ -115,7 +120,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:8081",
+	Host:             "host.docker.internal:8081",
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "Maratona Full Cycle Driver API",

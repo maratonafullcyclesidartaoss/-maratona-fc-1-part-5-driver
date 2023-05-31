@@ -4,19 +4,23 @@
         "description": "Driver API",
         "title": "Maratona Full Cycle Driver API",
         "termsOfService": "http://swagger.io/terms/",
-        "contact": {},
+        "contact": {
+            "name": "Sidarta Silva",
+            "url": "http://www.sidartaoss.com",
+            "email": "atendimento@sidartaoss.com"
+        },
         "license": {
             "name": "Full Cycle License",
             "url": "http://www.fullcycle.com.br"
         },
         "version": "1.0"
     },
-    "host": "localhost:8081",
+    "host": "host.docker.internal:8081",
     "basePath": "/",
     "paths": {
         "/drivers": {
             "get": {
-                "description": "Get all drivers",
+                "description": "List all drivers",
                 "consumes": [
                     "application/json"
                 ],
@@ -24,7 +28,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    ""
+                    "drivers"
                 ],
                 "summary": "List drivers",
                 "responses": {
@@ -48,6 +52,7 @@
         },
         "/drivers/{id}": {
             "get": {
+                "description": "Get a driver by ID (uuid)",
                 "consumes": [
                     "application/json"
                 ],
@@ -55,7 +60,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    ""
+                    "drivers"
                 ],
                 "summary": "Get a driver",
                 "parameters": [

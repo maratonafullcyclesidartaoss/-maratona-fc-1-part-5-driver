@@ -1,4 +1,4 @@
-module github.com/sidartaoss/maratona-fullcycle-1/driver
+module github.com/sidartaoss/maratona-fullcycle-1/part-5/driver
 
 go 1.18
 

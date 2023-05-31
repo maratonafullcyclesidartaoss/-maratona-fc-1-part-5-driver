@@ -9,9 +9,12 @@ definitions:
         example: 127a2285-0fd8-4df9-b4eb-485292f3e345
         type: string
     type: object
-host: localhost:8081
+host: host.docker.internal:8081
 info:
-  contact: {}
+  contact:
+    email: atendimento@sidartaoss.com
+    name: Sidarta Silva
+    url: http://www.sidartaoss.com
   description: Driver API
   license:
     name: Full Cycle License
@@ -19,53 +22,59 @@ info:
   termsOfService: http://swagger.io/terms/
   title: Maratona Full Cycle Driver API
   version: "1.0"
+tags:
+  - name: drivers
+    description: Endpoints about drivers
 paths:
   /drivers:
     get:
+      operationId: "list-drivers"
       consumes:
-      - application/json
-      description: Get all drivers
+        - application/json
+      # description: List all drivers
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
           schema:
             items:
-              $ref: '#/definitions/main.Driver'
+              $ref: "#/definitions/main.Driver"
             type: array
         "400":
           description: Bad Request
         "500":
           description: Internal Server Error
-      summary: List drivers
+      # summary: List drivers
       tags:
-      - ""
+        - drivers
   /drivers/{id}:
     get:
+      operationId: "get-driver"
       consumes:
-      - application/json
+        - application/json
+      # description: Get a driver by ID (uuid)
       parameters:
-      - description: driver ID
-        format: uuid
-        in: path
-        name: id
-        required: true
-        type: string
+        - description: driver ID
+          format: uuid
+          in: path
+          name: id
+          required: true
+          type: string
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/main.Driver'
+            $ref: "#/definitions/main.Driver"
         "400":
           description: Bad Request
         "404":
           description: Not Found
         "500":
           description: Internal Server Error
-      summary: Get a driver
+      # summary: Get a driver
       tags:
-      - ""
+        - drivers
 swagger: "2.0"
